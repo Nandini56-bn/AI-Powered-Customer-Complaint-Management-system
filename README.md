@@ -1,67 +1,134 @@
-# AIVOA - AI-Powered Customer Complaint Management System
+# AIVOA – AI-Powered Customer Complaint Management System
 
-A complete full-stack enterprise complaint management system built for internship assignment demonstration. 
-Features AI document extraction (PDF / raw text), automated complaint auto-filling, MySQL database storage, Redux Toolkit state management, and an interactive AI Chat Assistant.
-
-## Technology Stack
-
-- **Frontend**: React 18, Redux Toolkit, Lucide Icons, Vite, Modern Glassmorphism CSS.
-- **Backend**: FastAPI (Python 3.10+), SQLAlchemy ORM.
-- **Database**: MySQL (with automatic local SQLite fallback mode if MySQL is not active).
-- **AI Engine**: LangGraph & Groq API (`llama-3.3-70b-versatile`).
-
----
+A full-stack customer complaint management system developed as part of an internship assignment. The application allows users to upload complaint documents, extract key complaint information, manage complaint records, and interact with an AI-powered assistant.
 
 ## Features
 
-1. **Upload Complaint PDF/Email**: Drag & drop or select PDF files and raw emails.
-2. **AI Extraction**: Analyzes document text with LangGraph + Groq API to extract customer details, urgency, sentiment, summary, and action plan.
-3. **Auto-Fill Form**: Populates form fields automatically with extracted AI insights.
-4. **Edit Before Saving**: Fully editable form allowing user customization before committing to database.
-5. **Save to MySQL**: Persistent database storage with status, priority, category, and tags indexing.
-6. **AI Chat Assistant**: Embedded AI copilot for drafting customer response emails, analyzing SLA rules, and answering support queries.
-7. **Modern Responsive UI**: Dark glassmorphic dashboard with KPI cards, filtering, search, and analytics breakdown.
+* Upload complaint documents (PDF/Text)
+* AI-assisted complaint information extraction
+* Auto-fill complaint details
+* Edit complaint information before saving
+* Store complaint records in a database
+* AI Chat Assistant for customer support queries
+* Complaint dashboard with search and filtering
+* Responsive and modern user interface
+
+## Technology Stack
+
+### Frontend
+
+* React 18
+* Vite
+* Redux Toolkit
+* Lucide React
+* CSS
+
+### Backend
+
+* FastAPI
+* SQLAlchemy
+
+### Database
+
+* MySQL
+* SQLite (Fallback)
+
+### AI Integration
+
+* LangGraph
+* Groq API (Llama 3.3 70B Versatile)
 
 ---
 
-## Quick Start Guide
+# Project Setup
 
-### 1. Backend Setup
+## 1. Backend
 
 ```bash
 cd backend
+
 python -m venv venv
-# On Windows PowerShell:
+
+# Windows
 .\venv\Scripts\Activate.ps1
-# On macOS/Linux:
+
+# macOS/Linux
 source venv/bin/activate
 
 pip install -r requirements.txt
 
-# Start FastAPI Backend Server
 uvicorn app.main:app --reload --port 8000
 ```
-Backend will be live at `http://localhost:8000` with Swagger UI at `http://localhost:8000/docs`.
 
-### 2. Frontend Setup
+Backend URL:
 
-```bash
-cd frontend
-npm install
-npm run dev
 ```
-Frontend app will be live at `http://localhost:3000`.
+http://localhost:8000
+```
+
+API Documentation (Swagger):
+
+```
+http://localhost:8000/docs
+```
 
 ---
 
-## Environment Variables
+## 2. Frontend
 
-Edit `backend/.env`:
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+Open the application in your browser using the URL shown in the terminal (commonly `http://localhost:5173` when using Vite).
+
+---
+
+# Environment Variables
+
+Create a `.env` file inside the `backend` folder.
+
 ```env
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
 MYSQL_USER=root
 MYSQL_PASSWORD=root
 MYSQL_DB=complaint_db
-GROQ_API_KEY=gsk_your_groq_api_key_here
+
+GROQ_API_KEY=your_groq_api_key
 ```
+
+> **Note:** Do not upload your actual API key to GitHub. Replace it with a placeholder before pushing your project.
+
+---
+
+# Project Structure
+
+```
+AIVOA/
+│
+├── backend/
+│   ├── app/
+│   ├── requirements.txt
+│   └── .env
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+# Notes
+
+* This project was developed for learning and internship demonstration purposes.
+* The application supports MySQL and automatically falls back to SQLite when MySQL is unavailable.
+* AI-generated complaint extraction depends on a valid Groq API key.
+
